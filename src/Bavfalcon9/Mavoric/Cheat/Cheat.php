@@ -136,8 +136,14 @@ class Cheat implements Listener {
         if (($remainder !== -1) && ($this->getViolation($player->getName()) % $remainder === 0) === false) return;
         $msg = "§4[MAVORIC]: §c{$player->getName()} §7failed §c{$this->module}[{$this->name}-{$this->id}]";
         $verboseMsg = '§8(';
+        $i = 0;
         foreach ($verboseData as $name => $value) {
-            $verboseMsg .= "§7{$name}-§b{$value}" . '§7, ';
+            if (sizeof($verboseData) - 1 === $i) {
+                $verboseMsg .= "§7{$name}-§b{$value}";
+            } else {
+                $verboseMsg .= "§7{$name}-§b{$value}" . '§7, ';
+                $i++;
+            }
         }
         $verboseMsg .= '§8)';
         $violations = $this->mavoric->getViolationDataFor($player->getName());

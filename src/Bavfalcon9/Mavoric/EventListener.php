@@ -111,6 +111,6 @@ class EventListener implements Listener {
      * @param string $reason - Reason to kick
      */
     public function kickPlayer(Player $p, string $reason = 'Cheating'): void {
-        $this->plugin->getScheduler()->scheduleDelayedTask(new KickTask($p, $reason), 20);
+        $this->plugin->getScheduler()->scheduleDelayedTask(new KickTask($p, $reason), 1);
     }
 }

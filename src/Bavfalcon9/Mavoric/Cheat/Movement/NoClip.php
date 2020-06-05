@@ -23,6 +23,7 @@ use pocketmine\block\Slab;
 use pocketmine\block\SnowLayer;
 use pocketmine\block\Stair;
 use pocketmine\block\Vine;
+use pocketmine\block\Fallable;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\math\Vector3;
@@ -32,9 +33,9 @@ use Bavfalcon9\Mavoric\Cheat\Cheat;
 use Bavfalcon9\Mavoric\Cheat\CheatManager;
 use Bavfalcon9\Mavoric\Utils\Handlers\PearlHandler;
 
-class NoClipA extends Cheat {
+class NoClip extends Cheat {
     public function __construct(Mavoric $mavoric, int $id = -1) {
-        parent::__construct($mavoric, "NoClipA", "Movement", $id, false);
+        parent::__construct($mavoric, "NoClip", "Movement", $id, true);
     }
 
     public function onPlayerMove(PlayerMoveEvent $ev): void {
@@ -47,7 +48,6 @@ class NoClipA extends Cheat {
 
         if ($player->getAllowFlight()) return;
         if (($blockA->collidesWithBB($AABB) || $blockB->collidesWithBB($AABB))) {
-            
             if (!$blockA->isSolid() || !$blockB->isSolid()) {
                 return;
             }
@@ -65,6 +65,7 @@ class NoClipA extends Cheat {
                     || $block instanceof Slab
                     || $block instanceof SnowLayer
                     || $block instanceof Vine
+                    || $block instanceof Fallable
                 ) return;
             }
 

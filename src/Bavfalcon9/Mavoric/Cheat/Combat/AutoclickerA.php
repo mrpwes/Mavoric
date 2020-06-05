@@ -52,6 +52,11 @@ class AutoclickerA extends Cheat {
         $cps = count(array_filter($this->cps[$player->getName()],  function (float $t) use ($time) : bool {
             return ($time - $t) <= 1;
         }));
+
+        // handle possible lag spikes
+        if ($this->mavoric->tpsCheck->isLow()) {
+            $cps *= 0.7;
+        }
         
         if ($cps >= 100) {
             $this->increment($player->getName(), 1);
@@ -69,7 +74,6 @@ class AutoclickerA extends Cheat {
                 "Ping" => $player->getPing()
             ]);
         }
-       
     }
     
 }

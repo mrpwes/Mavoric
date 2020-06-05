@@ -26,13 +26,13 @@ use Bavfalcon9\Mavoric\Mavoric;
 use Bavfalcon9\Mavoric\Cheat\Cheat;
 use Bavfalcon9\Mavoric\Cheat\CheatManager;
 
-class Speed extends Cheat {
+class SpeedB extends Cheat {
 
     private $lastDistance = [];
     private $lastTime = [];
 
     public function __construct(Mavoric $mavoric, int $id = -1) {
-        parent::__construct($mavoric, "SpeedB", "Movement", $id, false);
+        parent::__construct($mavoric, "SpeedB", "Movement", $id, true);
     }
 
     public function onPlayerMove(PlayerMoveEvent $event): void {
