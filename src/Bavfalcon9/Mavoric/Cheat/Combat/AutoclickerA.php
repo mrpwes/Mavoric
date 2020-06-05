@@ -64,7 +64,6 @@ class AutoclickerA extends Cheat {
                 "CPS" => $cps,
                 "Ping" => $player->getPing()
             ]);
-            $this->suppress($ev);
             return;
         }
 
@@ -74,7 +73,6 @@ class AutoclickerA extends Cheat {
                 "CPS" => $cps,
                 "Ping" => $player->getPing()
             ]);
-            $this->suppress($ev);
             return;
         }
     }
