@@ -51,6 +51,7 @@ class Reach extends Cheat {
                 "Distance" => $damager->distance($damaged),
                 "Ping" => $damager->getPing()
             ]);
+            $this->suppress($ev);
             return;
         }
     }    

@@ -60,28 +60,29 @@ class EventListener implements Listener {
         }
         $violation = $ev->getViolation();
 
-        if ($violation->getLastAdditionFromNow() >= 2 && $violation->getViolationCountSum() <= 3) {
+        if ($violation->getLastAdditionFromNow() >= 2 && $violation->getViolationCountSum() <= 4) {
             $this->mavoric->getViolationDataFor($ev->getPlayer()->getName())->clear();
             return;
         }
 
         $cNotifier = $this->mavoric->getCheckNotifier();
-        $cNotifier->notify("§4[MAVORIC]§4: §c{$ev->getPlayer()->getName()} §7detected for §c{$ev->getCheat()}", "§8[§7{$violation->getCheatProbability()}§f% | §7VL §f{$ev->getCurrent()}§8]");
+        $cNotifier->notify("§4[AC]§4: §c{$ev->getPlayer()->getName()} §7detected for §c{$ev->getCheat()}", "§8[§7{$violation->getCheatProbability()}§f% | §7VL §f{$ev->getCurrent()}§8]");
 
         if ($violation->getIncrementsInPastSecond() >= 20 && $ev->getPlayer()->getPing() <= 200) {
             $this->kickPlayer($ev->getPlayer(), '§4[Mavoric] Cheating [VC: ' . $violation->getViolationCountSum() . ']');
-            $cNotifier->notify("§4[MAVORIC]§4: §c{$ev->getPlayer()->getName()} §7has been banned for: " . $violation->getMostDetectedCheat(), "");
+            $cNotifier->notify("§4[AC]§4: §c{$ev->getPlayer()->getName()} §7has been banned for: " . $violation->getMostDetectedCheat(), "");
             $banList = $this->plugin->getServer()->getNameBans();
             $banList->addBan($ev->getPlayer()->getName(), '§4[Mavoric] Cheating [VC: ' . $violation->getViolationCountSum() . ']', new \DateTime("+7 Day"), 'Mavoric');
             return; 
         }
         if ($violation->getViolationCountSum() % 50 === 0 && $violation->getViolationCountSum() >= 50) {
-            $cNotifier->notify("§4[MAVORIC]§4: §c{$ev->getPlayer()->getName()} §7is most likely cheating.", "");
+            $cNotifier->notify("§4[AC]§4: §c{$ev->getPlayer()->getName()} §7is most likely cheating.", "");
             return;
         } 
         if ($violation->getViolationCountSum() % 80 === 0 && $violation->getViolationCountSum() >= 80) {
             $this->kickPlayer($ev->getPlayer(), '§4[Mavoric] Cheating [VC: ' . $violation->getViolationCountSum() . ']');
-            $cNotifier->notify("§4[MAVORIC]§4: §c{$ev->getPlayer()->getName()} §7has been banned for cheating.", "");
+            $ev->getPlayer()->getServer()->broadcastMessage("§c{$ev->getPlayer()->getName()} §7has been autobanned for §c{$violation->getMostDetectedCheat()}");
+            $cNotifier->notify("§4[AC]§4: §c{$ev->getPlayer()->getName()} §7has been banned for cheating.", "");
             $banList = $this->plugin->getServer()->getNameBans();
             $banList->addBan($ev->getPlayer()->getName(), '§4[Mavoric] Cheating [VC: ' . $violation->getViolationCountSum() . ']', new \DateTime("+7 Day"), 'Mavoric');
             return;

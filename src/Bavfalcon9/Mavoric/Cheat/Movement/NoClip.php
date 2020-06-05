@@ -74,6 +74,7 @@ class NoClip extends Cheat {
                 "Block" => $blockA->getName(),
                 "Ping" => $player->getPing()
             ]);
+            $this->suppress($ev);
         }
     }
 }

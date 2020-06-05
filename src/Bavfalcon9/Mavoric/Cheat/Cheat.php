@@ -134,7 +134,7 @@ class Cheat implements Listener {
      */
     public function notifyAndIncrement(Player $player, int $remainder, int $increment, array $verboseData = []): void {
         if (($remainder !== -1) && ($this->getViolation($player->getName()) % $remainder === 0) === false) return;
-        $msg = "§4[MAVORIC]: §c{$player->getName()} §7failed §c{$this->module}[{$this->name}-{$this->id}]";
+        $msg = "§4[AC]: §c{$player->getName()} §7failed §c{$this->module}[{$this->name}-{$this->id}]";
         $verboseMsg = '§8(';
         $i = 0;
         foreach ($verboseData as $name => $value) {
@@ -145,11 +145,14 @@ class Cheat implements Listener {
                 $i++;
             }
         }
-        $verboseMsg .= '§8)';
+
         $violations = $this->mavoric->getViolationDataFor($player->getName());
         $violations->incrementLevel($this->getName(), $increment);
+        $verboseMsg .= '§8)';
+        $verboseMsg .= '§c ' . $violations->getCheatProbability() . '%';
         $notifier = $this->mavoric->getVerboseNotifier();
         $notifier->notify($msg, $verboseMsg);
+        $this->debug($msg . ' ' . $verboseMsg);
         return;
     }
 
