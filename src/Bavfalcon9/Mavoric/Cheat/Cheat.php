@@ -159,7 +159,7 @@ class Cheat implements Listener {
     /**
      * @return void
      */
-    public function suppress(Event &$event): void {
+    public function suppress(Event $event): void {
         /** for now this is always true */
         $event->setCancelled(true);
         return;
