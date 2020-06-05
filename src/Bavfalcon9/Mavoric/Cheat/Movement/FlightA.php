@@ -57,6 +57,7 @@ class FlightA extends Cheat {
         $session = $this->locationSessions[$player->getName()];
 
         if ($player->getAllowFlight() === true) return;
+        if ($player->isImmobile()) return;
         if ($player->getArmorInventory()->getChestPlate()->getId() === 444) return;
 
         if (Mavoric::$MATH_MODE === '0.2') {
