@@ -62,8 +62,9 @@ class FlightA extends Cheat {
         if ($player->isImmobile()) return;
         if ($player->getArmorInventory()->getChestPlate()->getId() === 444) return;
         // To do: Implement proper calculations for effects
-        if (EffectUtils::getEffectLevel($player, Effect::LEVITATION) !== 0) return;
-        if (EffectUtils::getEffectLevel($player, Effect::JUMP_BOOST) !== 0) return;
+        if (EffectUtils::getEffectLevel($player, Effect::LEVITATION) !== 0 || EffectUtils::getEffectLevel($player, Effect::JUMP_BOOST) !== 0) {
+            $player->resetFallDistance();
+        }
 
         if (Mavoric::$MATH_MODE === '0.2') {
             $blockAbove = $player->getLevel()->getBlock($player)->getSide(Vector3::SIDE_UP);
