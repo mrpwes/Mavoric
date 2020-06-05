@@ -7,4 +7,3 @@ Webhooks:
 Options:
   developer-mode: true # Whether or not to forcefully enable developer features
   packet-detection: false # Determine whether a packet is geninue
-  

@@ -32,7 +32,7 @@ class SpeedB extends Cheat {
     private $lastTime = [];
 
     public function __construct(Mavoric $mavoric, int $id = -1) {
-        parent::__construct($mavoric, "SpeedB", "Movement", $id, true);
+        parent::__construct($mavoric, "SpeedB", "Movement", $id, false);
     }
 
     public function onPlayerMove(PlayerMoveEvent $event): void {
@@ -61,7 +61,7 @@ class SpeedB extends Cheat {
             }
         }
 
-        //if the last moved tick was 2 ticks ago
+        // if the last moved tick was 2 ticks ago
         $currentTime = microtime(true);
         $time = $currentTime - $this->lastTime[$player->getName()];
         $ticks = round($time * 20, 2);
