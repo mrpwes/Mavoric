@@ -22,10 +22,12 @@ use pocketmine\block\Air;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\entity\Effect;
 use pocketmine\math\Vector3;
 use Bavfalcon9\Mavoric\Mavoric;
 use Bavfalcon9\Mavoric\Cheat\Cheat;
 use Bavfalcon9\Mavoric\Cheat\CheatManager;
+use Bavfalcon9\Mavoric\Utils\EffectUtils;
 
 class FlightA extends Cheat {
     /** @var int[] */
@@ -59,6 +61,9 @@ class FlightA extends Cheat {
         if ($player->getAllowFlight() === true) return;
         if ($player->isImmobile()) return;
         if ($player->getArmorInventory()->getChestPlate()->getId() === 444) return;
+        // To do: Implement proper calculations for effects
+        if (EffectUtils::getEffectLevel($player, Effect::LEVITATION) !== 0) return;
+        if (EffectUtils::getEffectLevel($player, Effect::JUMP_BOOST) !== 0) return;
 
         if (Mavoric::$MATH_MODE === '0.2') {
             $blockAbove = $player->getLevel()->getBlock($player)->getSide(Vector3::SIDE_UP);
