@@ -70,6 +70,7 @@ class EventListener implements Listener {
 
         if ($violation->getIncrementsInPastSecond() >= 20 && $ev->getPlayer()->getPing() <= 200) {
             $this->kickPlayer($ev->getPlayer(), '§4[Mavoric] Cheating [VC: ' . $violation->getViolationCountSum() . ']');
+            $ev->getPlayer()->getServer()->broadcastMessage("§c{$ev->getPlayer()->getName()} §7has been autobanned for §c{$violation->getMostDetectedCheat()}");
             $cNotifier->notify("§4[AC]§4: §c{$ev->getPlayer()->getName()} §7has been banned for: " . $violation->getMostDetectedCheat(), "");
             $banList = $this->plugin->getServer()->getNameBans();
             $banList->addBan($ev->getPlayer()->getName(), '§4[Mavoric] Cheating [VC: ' . $violation->getViolationCountSum() . ']', new \DateTime("+7 Day"), 'Mavoric');
