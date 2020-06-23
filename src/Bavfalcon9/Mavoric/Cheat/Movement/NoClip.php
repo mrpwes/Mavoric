@@ -35,7 +35,7 @@ use Bavfalcon9\Mavoric\Utils\Handlers\PearlHandler;
 
 class NoClip extends Cheat {
     public function __construct(Mavoric $mavoric, int $id = -1) {
-        parent::__construct($mavoric, "NoClip", "Movement", $id, true);
+        parent::__construct($mavoric, "NoClip", "Movement", $id, false);
     }
 
     public function onPlayerMove(PlayerMoveEvent $ev): void {

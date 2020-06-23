@@ -36,7 +36,7 @@ class FlightA extends Cheat {
     private $locationSessions;
 
     public function __construct(Mavoric $mavoric, int $id = -1) {
-        parent::__construct($mavoric, "FlightA", "Movement", $id, true);
+        parent::__construct($mavoric, "FlightA", "Movement", $id, false);
         $this->damageTimes = [];
         $this->locationSessions = [];
     }

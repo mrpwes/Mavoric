@@ -7,3 +7,5 @@ Webhooks:
 Options:
   developer-mode: true # Whether or not to forcefully enable developer features
   packet-detection: false # Determine whether a packet is geninue
+  cache-data: true # whether or not to cache ban data
+  fast-save: true # Whether or not to use binary json or not
