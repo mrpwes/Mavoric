@@ -47,7 +47,9 @@ class SpeedA extends Cheat {
         $lastMovementTick = $this->lastMovements[$player->getId()] ?? $this->getServer()->getTick();
         // Get distance total (excluding y-axis)
         if (($this->getServer()->getTick() - $lastMovementTick) >= 2) {
-            $this->debug('Movement check cancelled due to delayed last move on player' . $player->getName());
+            $this->debug('Movement check cancelled due to delayed last move on player: ' . $player->getName());
+            $this->debug('DIFF:' . ($this->getServer()->getTick() - $lastMovementTick));
+            $this->lastMovements[$player->getId()] = $this->getServer()->getTick();
             return;
             // To do: Add this in a lag handler
         }
