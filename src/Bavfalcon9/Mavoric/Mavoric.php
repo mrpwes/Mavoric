@@ -64,7 +64,7 @@ class Mavoric {
 
         /** Other checks */
         if (!class_exists('pocketmine\math\Facing')) {
-            $plugin->getServer()->getLogger()->debug('Using mathlib 0.2 instead of master (set by vendor)');
+            $plugin->getServer()->getLogger()->debug('Using mathlib 0.2 instead of master (this will be deprecated soon)');
             self::$MATH_MODE = '0.2';
         }
     }

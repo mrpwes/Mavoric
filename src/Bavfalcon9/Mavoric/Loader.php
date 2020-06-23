@@ -33,7 +33,6 @@ class Loader extends PluginBase {
      */
     public function onEnable(): void {
         $this->mavoric = new Mavoric($this);
-        
         $commandMap = $this->getServer()->getCommandMap();
         $commandMap->registerAll('Mavoric', [
             new AlertCommand($this, $this->mavoric),
