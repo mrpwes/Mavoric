@@ -57,6 +57,8 @@ class AutoclickerA extends Cheat {
         if ($this->mavoric->tpsCheck->isLow()) {
             $cps *= 0.7;
         }
+
+        $allowed = 20 + ($player->getPing() * 0.009); // same as ping / 50?
         
         if ($cps >= 100) {
             $this->increment($player->getName(), 1);
@@ -67,7 +69,7 @@ class AutoclickerA extends Cheat {
             return;
         }
 
-        if ($cps >= 22) {
+        if ($cps >= $allowed) {
             $this->increment($player->getName(), 1);
             $this->notifyAndIncrement($player, 2, 1, [
                 "CPS" => $cps,

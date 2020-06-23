@@ -43,7 +43,7 @@ class Reach extends Cheat {
         if ($damager->isCreative()) return;
         
         $allowed = ($damager->getPing() >= 200) ? 6 + ($damager->getPing() * 0.003) : 6.2;
-        
+
         if ($damager->distance($damaged) > $allowed) {
             $this->increment($damager->getName(), 1); // increments Cheat flag
             $this->notifyAndIncrement($damager, 4, 1, [
