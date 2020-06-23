@@ -32,12 +32,17 @@ class Loader extends PluginBase {
      * @return void
      */
     public function onEnable(): void {
-        $this->mavoric = new Mavoric($this);
-        $commandMap = $this->getServer()->getCommandMap();
-        $commandMap->registerAll('Mavoric', [
-            new AlertCommand($this, $this->mavoric),
-            new LogCommand($this, $this->mavoric)
-        ]);
+        if ($this->getServer()->getConfigBool('mavoric_dev') === true) { 
+            $this->mavoric = new Mavoric($this);
+            $commandMap = $this->getServer()->getCommandMap();
+            $commandMap->registerAll('Mavoric', [
+                new AlertCommand($this, $this->mavoric),
+                new LogCommand($this, $this->mavoric)
+            ]);
+        } else {
+            $this->getLogger()->critical('Mavoric Development builds are not allowed on this server.');
+            $this->getServer()->getPluginManager()->disablePlugin($this);
+        }
     }
 
     /**

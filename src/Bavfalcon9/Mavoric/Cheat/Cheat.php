@@ -148,8 +148,7 @@ class Cheat implements Listener {
 
         $violations = $this->mavoric->getViolationDataFor($player->getName());
         $violations->incrementLevel($this->getName(), $increment);
-        $verboseMsg .= '§8)';
-        $verboseMsg .= '§c ' . $violations->getCheatProbability() . '%';
+        $verboseMsg .= '§8)§c ' . $violations->getCheatProbability() . '%';
         $notifier = $this->mavoric->getVerboseNotifier();
         $notifier->notify($msg, $verboseMsg);
         $this->debug($msg . ' ' . $verboseMsg);
