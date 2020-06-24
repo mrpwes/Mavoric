@@ -1,9 +1,86 @@
-# Config version, recommended to not touch this, will cause config to be overwrote
-Version: 2.0.0-prerelease
+Version: 2.0.0-beta # Do not change this verison name
 Webhooks:
   alerts: false
   system: false
   reports: false
+  network: false
 Options:
-  developer-mode: false # Whether or not to forcefully enable developer features
+  developer-mode: false # Whether or not to use checks that may be unstable
   packet-detection: false # Determine whether a packet is geninue
+  default-violation-limit: 80 # Default is 80
+Modules:
+  Combat:
+    enabled: true # Whether or not the module should be enabled
+    Checks:
+      # AutoArmor check
+      AutoArmor:
+        enabled: true
+        mode: ban # kick, supress, ban, or ignore
+        time: forever # only needed for "ban", otherwise false and unneeded
+        limit: 1 # Amount of violations allowed before the violation is enforced with a kick or ban. any number or "default" can be used here
+      # Click speed check
+      AutoclickerA:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default
+      # Macro check
+      AutoclickerB:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default
+      # Multiple attacked entities check
+      MultiAura:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default
+      # Max attack distance check
+      Reach:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default
+  Movement:
+    enabled: true
+    Checks:
+      # Flight check, that uses movement times and air time to trigger.
+      FlightA:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default
+      # Speed Check that uses player distances between movements
+      SpeedA:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default
+      # Speed check that compares a player distance in a single motion with a predicted distance.
+      SpeedB:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default
+      # Noclip or "Phase" check, checks whether or not a player is submerged in a block
+      NoClip:
+        enabled: true
+        mode: ignore
+        time: 7d
+        limit: default
+  Packet:
+    enabled: true
+    Checks:
+      # NoSwing check
+      NoSwing:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default
+      # PacketOrder check, checks if packets are being sent in a vanilla way
+      PacketOrder:
+        enabled: true
+        mode: ban
+        time: 7d
+        limit: default

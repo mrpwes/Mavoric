@@ -41,7 +41,7 @@ class SpeedA extends Cheat {
         $from = $ev->getFrom();
         // Im still experimenting with values here
         $effLevel = ($player->getEffect(Effect::SPEED) instanceof EffectInstance) ? $player->getEffect(Effect::SPEED)->getEffectLevel() : 0;
-        $allowed = ($player->getPing() * 0.00387) + 0.7 + ($effLevel * 0.4);
+        $allowed = ($player->getPing() * 0.008) + 0.7 + ($effLevel * 0.4);
         $distX = (($from->x - $to->x) ** 2);
         $distZ = (($from->z - $to->z) ** 2);
         $lastMovementTick = $this->lastMovements[$player->getId()] ?? $this->getServer()->getTick();

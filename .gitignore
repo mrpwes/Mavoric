@@ -8,5 +8,15 @@ Tools/*
 resources/assets/uknd.txt
 SpeedTest.php
 
+# Dev cheats
+AimBot.php
+AirJump.php
+NoSwing.php
+PacketOrder.php
+AutoArmor.php
+NoClipB.php
+Nuker.php
+LagHandler.php
+
 #ignore github fixes
 .githubFixes/*
