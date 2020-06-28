@@ -26,8 +26,8 @@ trait ConfigValidatorTrait {
      * Add a validator to the valid config map by key.
      * Please note, if you're dealing with nested values, an array will be passed through closure.
      */
-    protected function addValidator(string $key, Closure $func): void {
-        if (isset($this->validConfigMap[$key])) throw new Exception('Key validator exists.');
+    protected function addValidator(string $key, \Closure $func): void {
+        if (isset($this->validConfigMap[$key])) throw new \Exception('Key validator exists.');
         $this->validConfigMap[$key] = $func;
     }
 
@@ -36,7 +36,7 @@ trait ConfigValidatorTrait {
      * To Do: Check for closures
      */
     protected function addNestedValidator(string $key, array $validators): void {
-        if (isset($this->validConfigMap[$key])) throw new Exception('Key validator exists.');
+        if (isset($this->validConfigMap[$key])) throw new \Exception('Key validator exists.');
         $this->validConfigMap[$key] = $validators;
     }
 
@@ -46,7 +46,7 @@ trait ConfigValidatorTrait {
     public function isValid(string $key, $value): bool {
         if (!isset($this->validConfigMap[$key])) return false;
         
-        $validator = $validConfigMap[$key];
+        $validator = $this->validConfigMap[$key];
         return $validator($value);
     }
 
@@ -62,7 +62,7 @@ trait ConfigValidatorTrait {
             if (!isset($nestedValues[$key])) {
                 $error = new InvalidConfigError(InvalidConfigError::ERROR_KEY_MISSING, "$key is missing when required");
             }
-            if ($validator instanceof Closure) {
+            if ($validator instanceof \Closure) {
                 if (!$validator($nestedValues[$key])) return false;
             } else if (is_array($validator)) {
                 if (!is_array($nestedValues[$key])) return false;

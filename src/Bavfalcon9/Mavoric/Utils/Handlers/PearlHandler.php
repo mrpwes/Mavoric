@@ -77,7 +77,7 @@ class PearlHandler extends BaseHandler {
 
     /**
      * Clears throws from memory for performance reasons.
-     * @return void
+     * @return int
      */
     public function purge(): int {
         $purged = 0;
@@ -110,7 +110,7 @@ class PearlHandler extends BaseHandler {
     /**
      * Returns the most recent throw from a player
      * @param string $player - Player name
-     * @return PearlThrow|Null - The most recent thrown pearl from player
+     * @return PearlThrow|null - The most recent thrown pearl from player
      */
     public static function getMostRecentThrowFrom(string $player): ?PearlThrow {
         $throws = self::getThrowsFrom($player);

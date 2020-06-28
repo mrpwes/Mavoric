@@ -35,7 +35,7 @@ class InvalidConfigError {
     protected $key;
     /** @var mixed */
     protected $providedValue;
-    /** @var Closure|null */
+    /** @var \Closure|null */
     protected $requirement;
 
     public function __construct(int $type = self::ERROR_VALUE_INVALID, string $detailedMessage = null) {

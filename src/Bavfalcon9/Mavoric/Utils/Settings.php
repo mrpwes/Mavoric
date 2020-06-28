@@ -52,6 +52,7 @@ class Settings {
                         if (!(is_bool($nestedVal) || is_numeric($nestedVal))) return false;
                     }
                 }
+                return true;
             } else {
                 return false;
             }

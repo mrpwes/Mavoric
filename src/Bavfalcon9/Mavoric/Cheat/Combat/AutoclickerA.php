@@ -23,7 +23,7 @@ use Bavfalcon9\Mavoric\Cheat\Cheat;
 use Bavfalcon9\Mavoric\Events\Player\PlayerClickEvent;
 
 class AutoclickerA extends Cheat {
-    /** @var int[] */
+    /** @var array[] */
     private $cps;
     private $constant;
 

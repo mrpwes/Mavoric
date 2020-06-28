@@ -167,9 +167,9 @@ class ViolationData {
 
     /**
      * Gets the difference from when last time a violation tick was added to now.
-     * @return int
+     * @return float
      */
-    public function getLastAdditionFromNow(): int {
+    public function getLastAdditionFromNow(): float {
         return (microtime(true) - $this->lastAddition);
     }
 
@@ -205,7 +205,7 @@ class ViolationData {
     /**
      * Updates the last addition time
      */
-    private function updateIncrementTime(int $amt = 1): void {
+    private function updateIncrementTime(float $amt = 1): void {
         $this->lastAddition = \microtime(true);
         if ($this->incrementsTime + 1 <= \microtime(true)) {
             $this->incrementsLast = 0;

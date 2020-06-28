@@ -27,9 +27,9 @@ use Bavfalcon9\Mavoric\Events\Player\PlayerClickEvent;
 
 class AutoclickerB extends Cheat{
 
-    /** @var int[] */
+    /** @var array[] */
     private $cps;
-    /** @var int[] */
+    /** @var array[] */
     private $clicks;
     /** @var int[] */
     private $level;

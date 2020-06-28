@@ -31,10 +31,6 @@ class Reach extends Cheat {
         parent::__construct($mavoric, 'Reach', 'Combat', $id, true);
     }
 
-    /**
-     * @param EntityDamageByEntityEvent $ev
-     * @return void
-     */
     public function onAttack(EntityDamageByEntityEvent $ev): void {
         $damager = $ev->getDamager();
         $damaged = $ev->getEntity();
@@ -43,7 +39,7 @@ class Reach extends Cheat {
         if ($ev instanceof EntityDamageByChildEntityEvent) return;
         if ($damager->isCreative()) return;
 
-        if ($damager->distance($damaged) > $this->getAllowedDistance($damaged)) {
+        if ($damager->distance($damaged) > $this->getAllowedDistance($damager)) {
             $this->increment($damager->getName(), 1); // increments Cheat flag
             $this->notifyAndIncrement($damager, 4, 1, [
                 "Entity" => $damaged->getId(),
@@ -56,11 +52,9 @@ class Reach extends Cheat {
     }
 
     /**
-     * Get allowed distance
-     * @param Entity $entity
-     * @return int
+     * Get allowed distance for the damager
      */
-    public function getAllowedDistance(Entity $damager): int {
+    public function getAllowedDistance(Player $damager): int {
         $projected = $damager->isOnGround() ? 4 : 6.2;
         return ($damager->getPing() * 0.002) + $projected;
     }
