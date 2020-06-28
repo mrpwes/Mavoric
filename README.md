@@ -58,11 +58,12 @@ v1.0.2 | Feburary 7th 2020 | ✔ Yes | [Mavoric_v1.0.2](https://github.com/Bavfa
 v1.0.3 | March 3rd 2020 | ✔ Yes | [Mavoric_v1.0.3](https://github.com/Bavfalcon9/Mavoric/releases/download/v1.0.3/Mavoric_v1.0.3.phar)
 v1.0.4 | March 19th 2020 | ✔ Yes | [Mavoric_v1.0.4](https://github.com/Bavfalcon9/Mavoric/releases/download/v1.0.4/Mavoric_v1.0.4.phar)
 v1.0.5 | March 23rd 2020 | ✔ Yes | [Mavoric_v1.0.5](https://github.com/Bavfalcon9/Mavoric/releases/download/v1.0.5/Mavoric_v1.0.5.phar)
-v1.0.6 | Unknown | ❌ No | [Mavoric_v1.0.6](https://github.com/Bavfalcon9/Mavoric/releases/download/v1.0.5/Mavoric_v1.0.6.phar)
+v1.0.6 | May 21st 2020 | ❌ No | [Mavoric_v1.0.6](https://github.com/Bavfalcon9/Mavoric/releases/download/v1.0.5/Mavoric_v1.0.6.phar)
+v2.0.0-alpha | June 28th 2020 | ✔ Yes | [Mavoric_v2.0.0-alpha](https://github.com/Bavfalcon9/Mavoric/releases/download/v2.0.0/Mavoric_v2.0.0.phar)
 
 ### API Versions
 Version | Released | Maintained | Details
 ------- | -------- | ---------- | -------
 v0.0.**X** | June 14th 2019 | ❌ No | Initial release of Mavoric, consists of detection list with poor handling.
 v1.0.**X** | November 3rd 2019 | ❌ No | Consists of core improvments for event handling and code improvements.
-v2.0.**X** | ❌ No | ✔ In Progress | Consists of core changes which provide cheat modulation.
+v2.0.**X** | June 29th 2020 | ✔ Yes | Consists of core changes which provide cheat modulation.
