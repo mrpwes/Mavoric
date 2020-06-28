@@ -26,7 +26,7 @@ use Bavfalcon9\Mavoric\Cheat\Cheat;
 use Bavfalcon9\Mavoric\Cheat\CheatManager;
 
 class MultiAura extends Cheat {
-    /** @var int[] */
+    /** @var array */
     private $attacks;
 
     public function __construct(Mavoric $mavoric, int $id = -2) {

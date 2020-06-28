@@ -20,6 +20,8 @@
 namespace Bavfalcon9\Mavoric\Utils;
 
 use pocketmine\utils\Config;
+use Bavfalcon9\Mavoric\Utils\Config\ConfigValidatorTrait;
+use Bavfalcon9\Mavoric\Utils\Config\InvalidConfigError;
 
 /**
  * Instaniated by Mavoric with config settings

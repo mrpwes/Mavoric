@@ -24,11 +24,8 @@ use Bavfalcon9\Mavoric\Mavoric;
 class MavoricEvent extends Event {
     /** @var Mavoric */
     private $mavoric;
-    /** @var ViolationHandler */
-    protected $violationHandler;
 
     public function __construct(Mavoric $mavoric) {
         $this->mavoric = $mavoric;
-        $this->violationHandler = $mavoric->getViolationHandler();
     }
 }

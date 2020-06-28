@@ -92,7 +92,7 @@ class ViolationChangeEvent extends Event implements Cancellable {
 
     /**
      * Gets the total amount that the violation changed.
-     * @return int
+     * @return bool
      */
     public function isIncreased(): bool {
         return $this->increased;

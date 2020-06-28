@@ -94,12 +94,12 @@ class EventListener implements Listener {
      * @param DataPacketReceiveEvent $ev
      */
     public function onClickCheck(DataPacketReceiveEvent $ev): void {
-        if ($ev->getPacket()::NETWORK_ID === InventoryTransactionPacket::NETWORK_ID) {
+        if ($ev->getPacket() instanceof InventoryTransactionPacket) {
             if ($ev->getPacket()->transactionType === InventoryTransactionPacket::TYPE_USE_ITEM_ON_ENTITY) {
                 $event = new PlayerClickEvent($ev->getPlayer());
                 $event->call();
             }
-        } else if ($ev->getPacket()::NETWORK_ID === LevelSoundEventPacket::NETWORK_ID) {
+        } else if ($ev->getPacket() instanceof LevelSoundEventPacket) {
             if ($ev->getPacket()->sound === LevelSoundEventPacket::SOUND_ATTACK_NODAMAGE) {
                 $event = new PlayerClickEvent($ev->getPlayer());
                 $event->call();

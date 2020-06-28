@@ -15,7 +15,9 @@
  *  @author Bavfalcon9
  *  @link https://github.com/Bavfalcon9/Mavoric                                  
  */
-namespace Bavfalcon9\Mavoric\Cheat\Combat;
+namespace Bavfalcon9\Mavoric\Utils\Handlers;
+
+use pocketmine\event\Listener;
 
 abstract class BaseHandler implements Listener {
 };

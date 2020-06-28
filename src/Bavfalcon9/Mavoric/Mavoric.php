@@ -24,6 +24,7 @@ use pocketmine\plugin\PluginException;
 use Bavfalcon9\Mavoric\Utils\Handlers\Pearl\FakePearl;
 use Bavfalcon9\Mavoric\Utils\Notifier;
 use Bavfalcon9\Mavoric\Utils\TpsCheck;
+use Bavfalcon9\Mavoric\Utils\Handlers\BaseHandler;
 use Bavfalcon9\Mavoric\Utils\Handlers\PearlHandler;
 use Bavfalcon9\Mavoric\Cheat\CheatManager;
 use Bavfalcon9\Mavoric\Cheat\Violation\ViolationData;
@@ -66,8 +67,8 @@ class Mavoric {
         if (!class_exists('pocketmine\math\Facing')) {
             // Deprecated support
             throw new PluginException('pocketmine\math dependency out of date. Mavoric requires branch "master" or later. Update it with composer.');
-            $plugin->getServer()->getLogger()->debug('Using mathlib 0.2 instead of master (this will be deprecated soon)');
-            self::$MATH_MODE = '0.2';
+            //$plugin->getServer()->getLogger()->debug('Using mathlib 0.2 instead of master (this will be deprecated soon)');
+            //self::$MATH_MODE = '0.2';
         }
     }
 

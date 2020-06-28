@@ -23,7 +23,7 @@ use Bavfalcon9\Mavoric\Cheat\Cheat;
 use Bavfalcon9\Mavoric\Events\Violation\ViolationChangeEvent;
 
 class ViolationData {
-    /** @var Array[] */
+    /** @var int[] */
     private $levels;
     /** @var Player */
     private $player;
@@ -71,9 +71,9 @@ class ViolationData {
      * Deincrements a violation level
      * @param string $cheat - Cheat to deincrement
      * @param int $amount - How much to deincrement
-     * @return int
+     * @return int|null
      */
-    public function deincrementLevel(string $cheat, int $amount = 1): int {
+    public function deincrementLevel(string $cheat, int $amount = 1): ?int {
         $this->updateIncrementTime(-1);
         $ev = new ViolationChangeEvent($this->player, $cheat, $amount, $this->levels[$cheat] ?? 0, $this, false);
         $ev->call();
@@ -91,7 +91,7 @@ class ViolationData {
 
     /**
      * Gets the sum of all cheat violations
-     * @return int|null
+     * @return int
      */
     public function getViolationCountSum(): int {
         return array_sum(array_values($this->levels));
@@ -144,7 +144,6 @@ class ViolationData {
 
     /**
      * Gets the violation level for a given cheat or player
-     * @return string
      */
     public function getLevel(string $cheat): ?int {
         return (!isset($this->levels[$cheat])) ? null : $this->levels[$cheat];
@@ -152,7 +151,7 @@ class ViolationData {
     
     /**
      * Gets the violation map for all cheats
-     * @return string[]
+     * @return int[]
      */
     public function getLevels(): array {
         return $this->levels;
@@ -176,7 +175,7 @@ class ViolationData {
 
     /**
      * Clears the violation data
-     * @return string[]
+     * @return int[]
      */
     public function clear(): array {
         return $this->levels = [];

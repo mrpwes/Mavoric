@@ -21,15 +21,15 @@ use pocketmine\block\Block;
 use pocketmine\math\AxisAlignedBB;
 use pocketmine\math\Vector3;
 
-class MathUtils {
+class Math {
     /**
      * Gets the total percentage that the AABB fills in the block, if the AABB fills the entire block, 100 is returned.
      * @param AxisAlignedBB $AABB - Axis Aligned Bounding Box of entity or other
      * @param Block $block - Block to run the check for
-     * @return Percentage
+     * @return int
      */
     public static function getPercentageFilled(AxisAlignedBB $AABB, Block $block): int {
-        
+        return 0;
     }
 
     /**

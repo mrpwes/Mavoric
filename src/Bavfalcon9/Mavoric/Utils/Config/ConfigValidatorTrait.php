@@ -17,12 +17,16 @@
  *  @link https://github.com/Bavfalcon9/Mavoric                                  
  */
 
-namespace Bavfalcon9\Mavoric\Utils;
+namespace Bavfalcon9\Mavoric\Utils\Config;
 
-trait ValidConfigTrait {
+trait ConfigValidatorTrait {
     protected $validConfigMap = [];
 
-    public function addValidator(string $key, Closure $func): void {
+    /**
+     * Add a validator to the valid config map by key.
+     * Please note, if you're dealing with nested values, an array will be passed through closure.
+     */
+    protected function addValidator(string $key, Closure $func): void {
         if (isset($this->validConfigMap[$key])) throw new Exception('Key validator exists.');
         $this->validConfigMap[$key] = $func;
     }
@@ -31,11 +35,14 @@ trait ValidConfigTrait {
      * This bypasses a closure check.
      * To Do: Check for closures
      */
-    public function addNestedValidator(string $key, array $validators): void {
+    protected function addNestedValidator(string $key, array $validators): void {
         if (isset($this->validConfigMap[$key])) throw new Exception('Key validator exists.');
         $this->validConfigMap[$key] = $validators;
     }
 
+    /**
+     * Check whether a value matches the requirements of the validator with the key
+     */
     public function isValid(string $key, $value): bool {
         if (!isset($this->validConfigMap[$key])) return false;
         
@@ -45,14 +52,16 @@ trait ValidConfigTrait {
 
     /**
      * Validate whether a array of nested values matches the current validator
-     * @return InvalidConfigTrait|bool
+     * @return InvalidConfigError|bool
      */
     public function validate(array $nestedValues = null, $validMap = null) {
         // To do: Invalid Config traits
         $validMap = ($validMap ?? $this->validConfigMap ?? []);
         if (empty($validMap)) return false;
         foreach ($validMap as $key=>$validator) {
-            if (!isset($nestedValues[$key])) return false;
+            if (!isset($nestedValues[$key])) {
+                $error = new InvalidConfigError(InvalidConfigError::ERROR_KEY_MISSING, "$key is missing when required");
+            }
             if ($validator instanceof Closure) {
                 if (!$validator($nestedValues[$key])) return false;
             } else if (is_array($validator)) {

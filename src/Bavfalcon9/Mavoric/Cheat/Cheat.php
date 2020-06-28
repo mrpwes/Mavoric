@@ -24,7 +24,7 @@ use pocketmine\event\Listener;
 use Bavfalcon9\Mavoric\Mavoric;
 
 class Cheat implements Listener {
-    /** @var Mavorc */
+    /** @var Mavoric */
     protected $mavoric;
     /** @var int[] */
     protected $violations;

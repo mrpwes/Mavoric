@@ -50,14 +50,14 @@ class Loader extends PluginBase {
      * @return void
      */
     public function onDisable(): void {
-        if (!$this->mavoric) return;
+        if ($this->mavoric === null) return;
         $this->mavoric->disable();
     }
 
     /**
      * @return Mavoric|null
      */
-    public function getMavoric(): Mavoric {
+    public function getMavoric(): ?Mavoric {
         return $this->mavoric;
     }
 

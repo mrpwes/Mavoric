@@ -23,7 +23,7 @@ use Bavfalcon9\Mavoric\Mavoric;
 class Notifier {
     /** @var string[] */
     private $ignored;
-    /** @var int[] */
+    /** @var float[] */
     private $times;
     /** @var Loader */
     private $plugin;
@@ -31,9 +31,10 @@ class Notifier {
     private $mavoric;
 
     public function __construct(Mavoric $mavoric, Loader $plugin) {
-        $this->plugin = $plugin;
         $this->times = [];
         $this->ignored = [];
+        $this->plugin = $plugin;
+        $this->mavoric = $mavoric;
     }
 
     /**

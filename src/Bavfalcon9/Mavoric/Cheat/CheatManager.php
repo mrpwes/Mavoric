@@ -32,7 +32,7 @@ class CheatManager {
     private $plugin;
     /** @var Mavoric */
     private $mavoric;
-    /** @var ModuleMap */
+    /** @var array */
     private $modules;
     /** @var bool */
     private $registered = false;
@@ -116,7 +116,7 @@ class CheatManager {
 
     /**
      * Gets the base path for the cheats.
-     * @return sting
+     * @return string
      */
     protected function getPathBase(): string {
         return $this->plugin->getFilePath() . 'src/Bavfalcon9/Mavoric/Cheat/';
@@ -124,7 +124,7 @@ class CheatManager {
 
     /**
      * Gets the base path for the cheats.
-     * @return sting
+     * @return string
      */
     protected function getClassBase(): string {
         return "Bavfalcon9\\Mavoric\\Cheat\\";

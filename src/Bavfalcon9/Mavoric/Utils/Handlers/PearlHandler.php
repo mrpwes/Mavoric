@@ -24,7 +24,7 @@ use Bavfalcon9\Mavoric\Utils\Handlers\Pearl\PearlThrownEvent;
 use Bavfalcon9\Mavoric\Utils\Handlers\Pearl\PearlThrow;
 use Bavfalcon9\Mavoric\Utils\Handlers\Pearl\PearlPurgeTask;
 
-class PearlHandler implements Listener {
+class PearlHandler extends BaseHandler {
     /** @var PearlThrow[] */
     private static $throws = [];
     /** @var PearlHandler */

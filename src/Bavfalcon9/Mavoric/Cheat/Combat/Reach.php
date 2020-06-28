@@ -43,14 +43,14 @@ class Reach extends Cheat {
         if ($ev instanceof EntityDamageByChildEntityEvent) return;
         if ($damager->isCreative()) return;
 
-        if ($damager->distance($damaged) > $this->getAllowedDistance()) {
+        if ($damager->distance($damaged) > $this->getAllowedDistance($damaged)) {
             $this->increment($damager->getName(), 1); // increments Cheat flag
             $this->notifyAndIncrement($damager, 4, 1, [
                 "Entity" => $damaged->getId(),
                 "Distance" => $damager->distance($damaged),
                 "Ping" => $damager->getPing()
             ]);
-            $this->suppress($ev);
+            //$this->suppress($ev);
             return;
         }
     }
@@ -60,8 +60,8 @@ class Reach extends Cheat {
      * @param Entity $entity
      * @return int
      */
-    public function getAllowedDistance(Entity $damaged): int {
-        $projected = $damaged->isOnGround() ? 4 : 6.2;
+    public function getAllowedDistance(Entity $damager): int {
+        $projected = $damager->isOnGround() ? 4 : 6.2;
         return ($damager->getPing() * 0.002) + $projected;
     }
 }
