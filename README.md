@@ -20,9 +20,10 @@
 ## Information
 Mavoric is a plugin designed to enforce the generic functions of MC:BE. Mavoric is designed to execute and enforce 
 general cheat detection powerfully without a hassle. <br /><br />
-Mavoric is feature rich, with TPS checks, cheat checks, banwaves, autobans and autokicks to help you stop cheaters, with the addition of v2.x.x these are much easier to configure. <br /><br />
+Mavoric is feature rich, with TPS checks, cheat checks, banwaves, autobans and autokicks to help you stop cheaters, with the addition of v2.x.x these are much easier to configure.<br />
 **Note:** Mavoric was originally intended to be light weight, but in an effort for better cheat detection, we have dropped this goal.
 However not all is lost, we plan on adding light weight things in the future.
+<br /><br />
 Mavoric currently features detections for:
  - AutoArmor
  - AirJump
