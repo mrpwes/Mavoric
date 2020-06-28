@@ -16,7 +16,7 @@
  *  @link https://github.com/Bavfalcon9/Mavoric                                  
  */
 
-namespace Bavfalcon9\Mavoric;
+namespace Bavfalcon9\Mavoric\Events;
 
 use pocketmine\event\Event;
 use Bavfalcon9\Mavoric\Mavoric;
