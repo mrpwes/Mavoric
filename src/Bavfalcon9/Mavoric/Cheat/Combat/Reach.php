@@ -54,7 +54,7 @@ class Reach extends Cheat {
     /**
      * Get allowed distance for the damager
      */
-    public function getAllowedDistance(Player $damager): int {
+    public function getAllowedDistance(Player $damager): float {
         $projected = $damager->isOnGround() ? 4 : 6.2;
         return ($damager->getPing() * 0.002) + $projected;
     }

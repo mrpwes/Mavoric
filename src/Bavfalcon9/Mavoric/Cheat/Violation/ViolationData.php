@@ -29,11 +29,11 @@ class ViolationData {
     private $player;
     /** @var string */
     private $playerName;
-    /** @var int */
+    /** @var float */
     private $lastAddition;
-    /** @var int */
+    /** @var int|float */
     private $incrementsTime;
-    /** @var int */
+    /** @var int|float */
     private $incrementsLast;
 
     public function __construct(Player $player) {
