@@ -68,9 +68,10 @@ class Mavoric {
         /** Other checks */
         if (!class_exists('pocketmine\math\Facing')) {
             // Deprecated support
-            throw new PluginException('pocketmine\math dependency out of date. Mavoric requires branch "master" or later. Update it with composer.');
-            //$plugin->getServer()->getLogger()->debug('Using mathlib 0.2 instead of master (this will be deprecated soon)');
-            //self::$MATH_MODE = '0.2';
+            //throw new PluginException('pocketmine\math dependency out of date. Mavoric requires branch "master" or later. Update it with composer.');
+            //$plugin->getLogger()->critical('Using mathlib 0.2 instead of master (this will be deprecated soon)');
+            $plugin->getLogger()->critical('pocketmine\math dependency out of date. Mavoric will require branch "master" or later upon next release. Update it with composer.');
+            self::$MATH_MODE = '0.2';
         }
     }
 
