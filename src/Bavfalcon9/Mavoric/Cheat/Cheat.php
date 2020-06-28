@@ -156,12 +156,11 @@ class Cheat implements Listener {
     }
 
     /**
-     * @return void
+     * @return bool
      */
-    public function suppress(Event $event): void {
-        /** for now this is always true */
-        $event->setCancelled(true);
-        return;
+    public function isSuppressed(): bool {
+        // To Do: Check config
+        return true;
     }
 
     /**

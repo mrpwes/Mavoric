@@ -35,6 +35,9 @@ class SpeedA extends Cheat {
         $this->lastMovements = [];
     }
 
+    /**
+     * @priority Highest
+     */
     public function onPlayerMove(PlayerMoveEvent $ev): void {
         $player = $ev->getPlayer();
         $to = $ev->getTo();
@@ -59,6 +62,9 @@ class SpeedA extends Cheat {
                 "Distance" => sqrt($distX + $distZ),
                 "Ping" => $player->getPing()
             ]);
+            if ($this->isSuppressed()) {
+                $ev->setCancelled(true);
+            }
         }
         $this->lastMovements[$player->getId()] = $this->getServer()->getTick();
     }

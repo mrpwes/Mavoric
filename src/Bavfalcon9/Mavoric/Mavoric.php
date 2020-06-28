@@ -20,6 +20,7 @@ namespace Bavfalcon9\Mavoric;
 use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\item\ItemFactory;
+use pocketmine\plugin\PluginException;
 use Bavfalcon9\Mavoric\Utils\Handlers\Pearl\FakePearl;
 use Bavfalcon9\Mavoric\Utils\Notifier;
 use Bavfalcon9\Mavoric\Utils\TpsCheck;
@@ -48,7 +49,6 @@ class Mavoric {
     private $handlers;
 
     public function __construct(Loader $plugin) {
-        /** Set variables */
         $this->plugin = $plugin;
         $this->tpsCheck = new TpsCheck($plugin, $this);
         $this->verboseNotifier = new Notifier($this, $plugin);
@@ -64,6 +64,8 @@ class Mavoric {
 
         /** Other checks */
         if (!class_exists('pocketmine\math\Facing')) {
+            // Deprecated support
+            throw new PluginException('pocketmine\math dependency out of date. Mavoric requires branch "master" or later. Update it with composer.');
             $plugin->getServer()->getLogger()->debug('Using mathlib 0.2 instead of master (this will be deprecated soon)');
             self::$MATH_MODE = '0.2';
         }

@@ -37,10 +37,8 @@ class AutoclickerA extends Cheat {
      * @param PlayerClickEvent $ev
      */
     public function onClick(PlayerClickEvent $ev) {
-        $this->dueCheck($ev->getPlayer());
-    }
+        $player = $ev->getPlayer();
 
-    private function dueCheck(Player $player): void {
         if (!isset($this->cps[$player->getName()])) {
             $this->cps[$player->getName()] = [];
         }
@@ -58,7 +56,7 @@ class AutoclickerA extends Cheat {
             $cps *= 0.7;
         }
 
-        $allowed = 20 + ($player->getPing() * 0.009); // same as ping / 50?
+        $allowed = 20 + ($player->getPing() * 0.009); // x * 0.002 is the same as ping / 50?
         
         if ($cps >= 100) {
             $this->increment($player->getName(), 1);
@@ -78,5 +76,4 @@ class AutoclickerA extends Cheat {
             return;
         }
     }
-    
 }
