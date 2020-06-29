@@ -45,7 +45,7 @@ class Math {
 
     /**
      * Gets the radius from a circumference
-     * @param float $circumference - The circumference to calculate
+     * @param $circumference float - The circumference to calculate
      * @return float
      */
     public static function radiusFromCircumference(float $circumference): float {

@@ -76,13 +76,6 @@ class Mavoric {
     }
 
     /**
-     * Temporary function to post tick to tpscheck
-     */
-    public function postTick(int $tick) {
-        $this->tpsCheck->postTick($tick);
-    }
-
-    /**
      * Unloads all modules and commands.
      * @return void
      */

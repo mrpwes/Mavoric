@@ -19,24 +19,25 @@
 
 namespace Bavfalcon9\Mavoric\Utils\Config;
 
+use Closure;
+
 class InvalidConfigError {
-    public const ERROR_KEY_MISSING = 0;
-    public const ERROR_VALUE_INVALID = 1;
-    public const ERROR_KEY_INVALID = 2;
-    public const ERROR_VALUE_EXCEEDED = 3;
-    public const ERROR_KEYS_NOT_EXACT = 4;
-    public const ERROR_VALUES_NOT_EXACT = 5;
+    public const KEY_MISSING = 0;
+    public const VALUE_INVALID = 1;
+    public const KEY_INVALID = 2;
+    public const VALUE_EXCEEDED = 3;
+    public const KEYS_NOT_EXACT = 4;
+    public const VALUES_NOT_EXACT = 5;
+    public const VALIDATION_FAILED = 6;
 
     /** @var int */
     protected $type;
     /** @var string */
     protected $detailedMessage;
-    /** @var string|int */
-    protected $key;
-    /** @var mixed */
-    protected $providedValue;
-    /** @var \Closure|null */
+    /** @var Closure|null */
     protected $requirement;
+    /** @var array */
+    protected $debugValues;
 
     public function __construct(int $type = self::ERROR_VALUE_INVALID, string $detailedMessage = null) {
         $this->type = $type;
@@ -49,5 +50,20 @@ class InvalidConfigError {
 
     public function getMessage(): string {
         return $this->message;
+    }
+
+    public function setRequirement(Closure $closure): void {
+        $this->requirement = $closure;
+    }
+
+    /**
+     * @param $values array
+     */
+    public function setDebugValues($values): void {
+        return $this->debugValues = $values;
+    }
+
+    public function getDebugValues(): array {
+        return $this->debugValues;
     }
 }

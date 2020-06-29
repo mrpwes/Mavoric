@@ -136,7 +136,7 @@ class TpsCheck {
                 if (!$mavoric) {
                     return;
                 } else {
-                    $mavoric->getMavoric()->postTick($diff);
+                    $mavoric->getMavoric()->tpsCheck->postTick($diff);
                 }
             })
         );
