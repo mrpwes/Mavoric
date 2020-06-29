@@ -39,7 +39,7 @@ class InvalidConfigError {
     /** @var array */
     protected $debugValues;
 
-    public function __construct(int $type = self::ERROR_VALUE_INVALID, string $detailedMessage = null) {
+    public function __construct(int $type = 1, string $detailedMessage = null) {
         $this->type = $type;
         $this->detailedMessage = $detailedMessage ?? "Unknown error";
     }

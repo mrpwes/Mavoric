@@ -63,7 +63,7 @@ trait ConfigValidatorTrait {
         if (empty($validMap)) return false;
         foreach ($validMap as $key=>$validator) {
             if (!isset($nestedValues[$key])) {
-                $error = new InvalidConfigError(InvalidConfigError::ERROR_KEY_MISSING, "$key is missing when required");
+                $error = new InvalidConfigError(InvalidConfigError::KEY_MISSING, "$key is missing when required");
                 $error->setRequirement($validator);
                 $error->setDebugValues([
                     "invalid_key" => $key,
