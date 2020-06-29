@@ -60,7 +60,8 @@ class InvalidConfigError {
      * @param $values array
      */
     public function setDebugValues($values): void {
-        return $this->debugValues = $values;
+        $this->debugValues = $values;
+        return;
     }
 
     public function getDebugValues(): array {
