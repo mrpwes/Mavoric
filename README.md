@@ -17,7 +17,7 @@
 </div>
 
 # NOTICE
-This version of mavoric is no longer being maintained. This was my first attempt at an anticheat, which was actually started when I first started developing. I understand this version is poor in design which is why im working on [v2.0.0 which you can find here.](https://github.com/Olybear9/Mavoric/tree/v2.0.0). Sorry for the inconvienence in the meantime :(
+This version of mavoric is no longer being maintained. This was my first attempt at an anticheat, which was actually started when I first started developing. I understand this version is poor in design which is why im working on [v2.0.0 which you can find here.](https://github.com/Olybear9/Mavoric/tree/v2.0.0). Sorry for the inconvienence in the meantime  :(
 
 ## Description
 Mavoric is a plugin designed to enforce the generic functions of MC:BE. Mavoric is designed to execute and enforce 
@@ -43,7 +43,7 @@ If you have any bugs or suggestions, please feel free to report them on this rep
 
 
 ## History
-Early stages of Mavoric were originally developed for the [OwnagePE](shop.ownagepe.com) network, 
+Early stages of Mavoric  were originally developed for the [OwnagePE](shop.ownagepe.com) network, 
 after multiple failed attempts at making something functional, Mavoric was then taken into private development 
 for improvements and shortly after made an appearance on [Versai](versai.pro) in August 2019 where it has been 
 used on a mass scale to help improve it's overall functionality.
