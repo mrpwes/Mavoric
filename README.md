@@ -1,6 +1,6 @@
 <div align="center">
   <p>
-    <img width="150" alt="portfolio_view" src="https://raw.githubusercontent.com/Olybear9/Mavoric/stable/resources/assets/mavoric_black_and_white.png">
+    <img width="150" alt="portfolio_view"   src="https://raw.githubusercontent.com/Olybear9/Mavoric/stable/resources/assets/mavoric_black_and_white.png">
   </p>
   <p>
     <h1> Mavoric Anticheat</h1>
