@@ -1,4 +1,4 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Olybear9/Mavoric
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/mrpwes/Mavoric
 build-by-default: true
 branches:
 - stable
